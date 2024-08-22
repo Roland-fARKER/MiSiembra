@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import "primeng/resources/themes/saga-green/theme.css";
+@import "primeng/resources/primeng.css";
+
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --verde: #10B981;
+  --verde2 : #A7F3DA;
+  --verde3 : #059666;
+}
