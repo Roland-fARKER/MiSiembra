@@ -20,6 +20,16 @@ interface municipio {
   nombre: string;
 }
 
+interface densidad{
+  id: number;
+  nombre: string;
+}
+
+interface variedad {
+  id: number;
+  nombre: string;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -31,6 +41,8 @@ export class HomeComponent {
   areaSelccionada : area | undefined;
   departamentoSeleccionado : departamento | undefined;
   municipioSeleccionado : municipio | undefined;
+  densidadSeleccionada : densidad | undefined;
+  variedadSeleccionada : variedad | undefined;
   
   cultivos : cultivo[] = [
     { id: 1, nombre: 'Frijol' },
@@ -57,5 +69,16 @@ export class HomeComponent {
     { id: 7, nombre: 'Catarina' },
     { id: 8, nombre: 'San juan de Oriente' },
     { id: 9, nombre: 'La concepción' },
+  ]
+
+  densidades: densidad[]=[
+    { id: 1, nombre: '1 mz' },
+  ]
+
+  variedades: variedad[]=[
+    { id: 1, nombre: 'NB6' },
+    { id: 2, nombre: 'INTA rojo' },
+    { id: 3, nombre: 'INTA sequia amarillo' },
+    { id: 4, nombre: 'INTA criollo' },
   ]
 }

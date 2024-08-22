@@ -7,6 +7,12 @@
 <div class="wraper">
   <h3 style="text-align: center">¿Qué vamos a sembrar hoy?</h3>
 
+  <div style="display: flex; width: 100%; justify-content: center">
+    <div style="width: 190px">
+      <app-icono></app-icono>
+    </div>
+  </div>
+
   <p-stepper>
     <p-stepperPanel>
       <ng-template
@@ -45,15 +51,16 @@
               [disabled]="!departamentoSeleccionado"
             />
           </div>
-        </div>
-        <div class="fott">
-          <span></span>
-          <p-button
-            label="Siguiente"
-            icon="fa-solid fa-arrow-right"
-            iconPos="right"
-            (onClick)="nextCallback.emit()"
-          />
+          <div class="fott">
+            <span></span>
+            <p-button
+              label="siguiente"
+              icon="fa-solid fa-arrow-right"
+              iconPos="right"
+              (onClick)="nextCallback.emit()"
+              [disabled]="!municipioSeleccionado"
+            />
+          </div>
         </div>
       </ng-template>
     </p-stepperPanel>
@@ -64,18 +71,48 @@
         let-nextCallback="nextCallback"
         let-index="index"
       >
-        <div class="fott">
-          <p-button
-            label="Anterior"
-            icon="fa-solid fa-arrow-left"
-            (onClick)="prevCallback.emit()"
-          />
-          <p-button
-            label="Siguiente"
-            icon="fa-solid fa-arrow-right"
-            iconPos="right"
-            (onClick)="nextCallback.emit()"
-          />
+        <div class="wraper">
+          <div class="drop-cont">
+            <p-dropdown
+              [options]="variedades"
+              [(ngModel)]="variedadSeleccionada"
+              optionLabel="nombre"
+              placeholder="Variedad del cultivo"
+            />
+            <p-dropdown
+              [options]="variedades"
+              [(ngModel)]="variedadSeleccionada"
+              optionLabel="nombre"
+              placeholder="area"
+            />
+          </div>
+          <div class="drop-cont">
+            <p-dropdown
+              [options]="densidades"
+              [(ngModel)]="densidadSeleccionada"
+              optionLabel="nombre"
+              placeholder="Densidad n° plantas"
+            />
+            <p-dropdown
+              [options]="departamentos"
+              [(ngModel)]="departamentoSeleccionado"
+              optionLabel="nombre"
+              placeholder="Departamento"
+            />
+          </div>
+          <div class="fott">
+            <p-button
+              label="regresar"
+              icon="fa-solid fa-arrow-left"
+              (onClick)="prevCallback.emit()"
+            />
+            <p-button
+              label="siguiente"
+              icon="fa-solid fa-arrow-right"
+              iconPos="right"
+              (onClick)="nextCallback.emit()"
+            />
+          </div>
         </div>
       </ng-template>
     </p-stepperPanel>

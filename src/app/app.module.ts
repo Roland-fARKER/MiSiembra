@@ -6,14 +6,14 @@ import { AppRoutingModule } from './router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-
+import { IconoComponent } from './icono/icono.component';
 //primeng
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { StepperModule } from 'primeng/stepper';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, IconoComponent ],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
