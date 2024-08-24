@@ -4,122 +4,173 @@
   <span></span>
 </div>
 
-<div  id="fat">
-    <div class="wraper" id="cont">
-        <h3 style="text-align: center">¿Qué vamos a sembrar hoy?</h3>
-      
-        <div style="display: flex; width: 100%; justify-content: center">
-          <div style="width: 190px">
-            <app-icono></app-icono>
-          </div>
-        </div>
-      
-        <p-stepper>
-          <p-stepperPanel>
-            <ng-template
-              pTemplate="content"
-              let-nextCallback="nextCallback"
-              let-index="index"
-            >
-              <div class="wraper">
-                <div class="drop-cont">
-                  <p-dropdown
-                    [options]="cultivos"
-                    [(ngModel)]="cultivoSeleccionado"
-                    optionLabel="nombre"
-                    placeholder="Tipo de Cultivo"
-                  />
-                  <p-dropdown
-                    [options]="areas"
-                    [(ngModel)]="areaSelccionada"
-                    optionLabel="tamaño"
-                    placeholder="Área"
-                  />
-                </div>
-      
-                <div class="drop-cont">
-                  <p-dropdown
-                    [options]="departamentos"
-                    [(ngModel)]="departamentoSeleccionado"
-                    optionLabel="nombre"
-                    placeholder="Departamento"
-                  />
-                  <p-dropdown
-                    [options]="municipios"
-                    [(ngModel)]="municipioSeleccionado"
-                    optionLabel="nombre"
-                    placeholder="municipio"
-                    [disabled]="!departamentoSeleccionado"
-                  />
-                </div>
-                <div class="fott">
-                  <span></span>
-                  <p-button
-                    label="siguiente"
-                    icon="fa-solid fa-arrow-right"
-                    iconPos="right"
-                    (onClick)="nextCallback.emit()"
-                    [disabled]="!municipioSeleccionado"
-                  />
-                </div>
-              </div>
-            </ng-template>
-          </p-stepperPanel>
-          <p-stepperPanel>
-            <ng-template
-              pTemplate="content"
-              let-prevCallback="prevCallback"
-              let-nextCallback="nextCallback"
-              let-index="index"
-            >
-              <div class="wraper">
-                <div class="drop-cont">
-                  <p-dropdown
-                    [options]="variedades"
-                    [(ngModel)]="variedadSeleccionada"
-                    optionLabel="nombre"
-                    placeholder="Variedad del cultivo"
-                  />
-                  <p-dropdown
-                  [options]="areas"
-                  [(ngModel)]="areaSelccionada"
-                  optionLabel="tamaño"
-                  placeholder="Área"
-                />
-                </div>
-                <div class="drop-cont">
-                  <p-dropdown
-                    [options]="densidades"
-                    [(ngModel)]="densidadSeleccionada"
-                    optionLabel="nombre"
-                    placeholder="Densidad n° plantas"
-                  />
-                  <p-dropdown
-                    [options]="departamentos"
-                    [(ngModel)]="departamentoSeleccionado"
-                    optionLabel="nombre"
-                    placeholder="Departamento"
-                  />
-                </div>
-                <div class="fott">
-                  <p-button
-                    label="regresar"
-                    icon="fa-solid fa-arrow-left"
-                    (onClick)="prevCallback.emit()"
-                  />
-                  <p-button
-                    label="siguiente"
-                    icon="fa-solid fa-arrow-right"
-                    iconPos="right"
-                    (onClick)="nextCallback.emit()"
-                  />
-                </div>
-              </div>
-            </ng-template>
-          </p-stepperPanel>
-        </p-stepper>
+<div id="fat">
+  <div *ngIf="band" class="wraper" id="cont">
+    <h3 style="text-align: center">¿Qué vamos a sembrar hoy?</h3>
+
+    <div style="display: flex; width: 100%; justify-content: center">
+      <div style="width: 190px">
+        <app-icono></app-icono>
       </div>
-      
+    </div>
 
+    <p-stepper>
+      <p-stepperPanel>
+        <ng-template
+          pTemplate="content"
+          let-nextCallback="nextCallback"
+          let-index="index"
+        >
+          <div class="wraper">
+            <div class="drop-cont">
+              <p-dropdown
+                [options]="cultivos"
+                [(ngModel)]="cultivoSeleccionado"
+                optionLabel="nombre"
+                placeholder="Tipo de Cultivo"
+              />
+              <p-dropdown
+                [options]="areas"
+                [(ngModel)]="areaSelccionada"
+                optionLabel="tamaño"
+                placeholder="Área"
+              />
+            </div>
+
+            <div class="drop-cont">
+              <p-dropdown
+                [options]="departamentos"
+                [(ngModel)]="departamentoSeleccionado"
+                optionLabel="nombre"
+                placeholder="Departamento"
+              />
+              <p-dropdown
+                [options]="municipios"
+                [(ngModel)]="municipioSeleccionado"
+                optionLabel="nombre"
+                placeholder="municipio"
+                [disabled]="!departamentoSeleccionado"
+              />
+            </div>
+            <div class="fott">
+              <span></span>
+              <p-button
+                label="siguiente"
+                icon="fa-solid fa-arrow-right"
+                iconPos="right"
+                (onClick)="nextCallback.emit()"
+                [disabled]="!municipioSeleccionado"
+              />
+            </div>
+          </div>
+        </ng-template>
+      </p-stepperPanel>
+      <p-stepperPanel>
+        <ng-template
+          pTemplate="content"
+          let-prevCallback="prevCallback"
+          let-nextCallback="nextCallback"
+          let-index="index"
+        >
+          <div class="wraper">
+            <div class="drop-cont">
+              <p-dropdown
+                [options]="variedades"
+                [(ngModel)]="variedadSeleccionada"
+                optionLabel="nombre"
+                placeholder="Variedad del cultivo"
+              />
+              <p-dropdown
+                [options]="areas"
+                [(ngModel)]="areaSelccionada"
+                optionLabel="tamaño"
+                placeholder="Área"
+              />
+            </div>
+            <div class="drop-cont">
+              <p-dropdown
+                [options]="densidades"
+                [(ngModel)]="densidadSeleccionada"
+                optionLabel="nombre"
+                placeholder="Densidad n° plantas"
+              />
+              <p-dropdown
+                [options]="departamentos"
+                [(ngModel)]="departamentoSeleccionado"
+                optionLabel="nombre"
+                placeholder="Departamento"
+              />
+            </div>
+            <div class="fott">
+              <p-button
+                label="regresar"
+                icon="fa-solid fa-arrow-left"
+                (onClick)="prevCallback.emit()"
+              />
+              <p-button
+                label="Listo"
+                icon="fa-solid fa-check"
+                iconPos="right"
+                (onClick)="alter()"
+                [disabled]=" !densidadSeleccionada "
+              />
+            </div>
+          </div>
+        </ng-template>
+      </p-stepperPanel>
+    </p-stepper>
+  </div>
+
+  <div *ngIf="!band" class="wraper" id="cont">
+    <p-button
+      label="regresar"
+      icon="fa-solid fa-arrow-left"
+      (onClick)="alter()"
+    />
+    <p-tabView>
+      <p-tabPanel header="Plagas" leftIcon="fa-solid fa-bugs">
+        <h3>Gusano Cogollero</h3>
+        <h5>Helicoverpa armigera</h5>
+        <img style="width: 90%;" src="https://blog.cambiagro.com/wp-content/uploads/2021/08/header-gusano-cogollero-del-maiz-1024x449.jpg" />
+        <p>El gusano cogollero del maíz, conocido científicamente como (Spodoptera frugiperda), es una de las plagas más devastadoras para los cultivos de maíz en América Latina y el mundo.</p>
+        
+        <p>Este lepidóptero, perteneciente a la familia de los noctuidos, ha captado la atención de agricultores, científicos y entidades gubernamentales debido a su capacidad de causar daños significativos en las etapas tempranas del desarrollo del maíz.</p>
+
+        <p-divider />
+
+        <h3>Gusano Barrenador</h3>
+        <h5>Cochliomyia hominivorax</h5>
+
+        <img style="width: 90%;"  src="https://agroproductores.com/wp-content/uploads/2020/02/gusano-cogollero-spodoptera-frugiperda.jpg"/>
+
+        <p>El conocido como gusano barrenador es la larva de una mosca llamada Cochliomyia hominivorax, que es el nombre científico de este gusano barrenador. Estas larvas generan un problema importante a nivel económico, porque afecta a animales domésticos, silvestres e, inclusive, al ser humano</p>
+
+        <p-divider/>
+
+        <h3>Gallina Ciega</h3>
+        <h5>Phyllophaga sp.</h5>
+        <img style="width: 90%;" src="https://agroproductores.com/wp-content/uploads/2018/10/gallina-ciega-2.jpg"/>
+        <p>La gallina ciega (Phyllophaga sp.) es la plaga de suelo predominante en cultivos de Centroamérica, afecta al cacao (Theobroma cacao), y a gran cantidad de cultivos de diferentes familias botánicas. No existe registro de variedades de cacao tolerante al ataque de gallina ciega y las alternativas de manejo se centran en la aplicación de químicos sintéticos, cuyos efectos residuales en suelos y cultivos no son compatibles con los requerimientos fitosanitarios establecidos por las agencias certificadoras.</p>
+      </p-tabPanel>
+
+      <p-tabPanel header="Enfermedades" leftIcon="fa-solid fa-viruses">
+
+        <h3>Achaparramiento del maíz</h3>
+
+      <img style="width: 90%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR775l43edRcHEVetEd73CV6ZI-n4rFd9VbgQ&s" />
+      <p>El “achaparramiento del maíz” es una enfermedad endémica en el norte de Argentina y hasta el momento se han identificado cuatro patógenos que la causan, que son transmitidos por la “chicharrita” (Dalbulus maidis) como insecto vector.</p>
+
+      <p-divider/>
+      <h3>Pudrición de la Mazorca</h3>
+      <img style="width: 90%;" src="https://www.corteva.es/content/dam/dpagco/corteva/eu/es/es/images/odn-pilot/agronomy/IMG_ES_48_Article_1.jpg" />
+      <p>La pudrición de la mazorca y del grano es causada por el hongo Cladosporium herbarum que ataca los granos cerca de la base de la mazorca, especialmente los granos dañados. Los síntomas característicos son pústulas o rayas negras o verde negruzcas sobre granos esparcidos en la mazorca.</p>
+
+      <p-divider/>
+
+      <h3>Pudrición del tallo</h3>
+        <img style="width: 90%;" src="https://panorama-agro.com/wp-content/uploads/2015/02/Maiz-Gibberella-zeae.jpg" />
+      <p>Pudrición del tallo: esta fase se puede iniciar por la infección de plántu- las o por esporas provenientes de los residuos. Estas esporas infectan el tallo a través de las raíces, por la base de la planta, por lesiones causadas por insectos u otras lesiones mecánicas.</p>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
 </div>
-

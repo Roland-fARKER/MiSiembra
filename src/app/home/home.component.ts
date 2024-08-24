@@ -37,6 +37,8 @@ interface variedad {
 })
 export class HomeComponent {
 
+  band: boolean = true;
+
   cultivoSeleccionado : cultivo | undefined;
   areaSelccionada : area | undefined;
   departamentoSeleccionado : departamento | undefined;
@@ -81,4 +83,8 @@ export class HomeComponent {
     { id: 3, nombre: 'INTA sequia amarillo' },
     { id: 4, nombre: 'INTA criollo' },
   ]
+
+  public alter(){
+    this.band = !this.band;
+  }
 }

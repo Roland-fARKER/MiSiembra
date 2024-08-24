@@ -11,7 +11,8 @@ import { IconoComponent } from './icono/icono.component';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { StepperModule } from 'primeng/stepper';
-
+import { TabViewModule } from 'primeng/tabview';
+import { DividerModule } from 'primeng/divider';
 @NgModule({
   declarations: [AppComponent, HomeComponent, IconoComponent ],
   imports: [
@@ -22,6 +23,8 @@ import { StepperModule } from 'primeng/stepper';
     ButtonModule,
     DropdownModule,
     StepperModule,
+    TabViewModule,
+    DividerModule,
   ],
   exports: [CommonModule, BrowserAnimationsModule],
   bootstrap: [AppComponent],
